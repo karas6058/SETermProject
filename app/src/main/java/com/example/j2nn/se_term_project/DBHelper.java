@@ -28,10 +28,20 @@ public class DBHelper extends SQLiteOpenHelper{
         db.execSQL("INSERT INTO MOVIE (movieName, grade, director, actor, runningTime, movieImg) VALUES ('나,다니엘_블레이크','Up_to_12','켄_로치','데이브_존스,헤일리_스콰이어',100,'i_daniel_blake');");
         db.execSQL("INSERT INTO MOVIE (movieName, grade, director, actor, runningTime, movieImg) VALUES ('미씽:사라진_여자','Up_to_15','이언희','엄지원,공효진',100,'missing');");
 
+        db.execSQL("CREATE TABLE MEMBER (_id INTEGER PRIMARY KEY AUTOINCREMENT, memberId TEXT, password TEXT);");
+
+    }
+
+    public void insert(String id, String password) {
+        // 읽고 쓰기가 가능하게 DB 열기
+        SQLiteDatabase db = getWritableDatabase();
+        // DB에 입력한 값으로 행 추가
+        db.execSQL("INSERT INTO MEMBER VALUES(null, '" + id + "', " + password + "');");
+        db.close();
     }
 
     @Override
-    public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
+    public void onUpgrade(SQLiteDatabase sqLiteDatabase, int oldVersion, int newVersion) {
 
     }
 }
