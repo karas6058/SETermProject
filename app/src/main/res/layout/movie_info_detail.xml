@@ -3,4 +3,49 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <ImageView
+        android:id="@+id/poster"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TableRow>
+            <TextView
+                android:text="등급"/>
+            <TextView
+                android:id="@+id/grade"/>
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:text="감독"/>
+            <TextView
+                android:id="@+id/director"/>
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:text="배우"/>
+            <TextView
+                android:id="@+id/actors"/>
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:text="상영시간"/>
+            <TextView
+                android:id="@+id/runningTime"/>
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:text="줄거리"/>
+            <TextView
+                android:id="@+id/desc"/>
+        </TableRow>
+    </TableLayout>
+
 </LinearLayout>
