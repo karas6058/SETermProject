@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 /**
  * Created by J2NN on 2016-12-17.
@@ -20,10 +21,10 @@ public class Join extends AppCompatActivity {
         setContentView(R.layout.join);
 
         final EditText mid = (EditText) findViewById(R.id.id);
-        final EditText mpw = (EditText) findViewById(R.id.password);
+        final EditText mpw = (EditText) findViewById(R.id.password2);
 
-        Button join = (Button) findViewById(R.id.submit);
-        join.setOnClickListener(new View.OnClickListener() {
+        Button _submit = (Button) findViewById(R.id.submit);
+        _submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String id = mid.getText().toString();
@@ -31,5 +32,22 @@ public class Join extends AppCompatActivity {
                 dbHelper.insert(id,pw);
             }
         });
+    }
+
+    public void submit(View view) {
+        final EditText id = (EditText) findViewById(R.id.id);
+        final EditText password1 = (EditText) findViewById(R.id.password1);
+        final EditText password2 = (EditText) findViewById(R.id.password2);
+        final Button button = (Button) findViewById(R.id.submit);
+
+        if (true) {//TODO db에서 아이디 중복 확인
+            if (password1.getText().toString().equals(password2.getText().toString())) {
+                //TODO 아이디와 패스워드 DB에 등록
+            } else {
+                Toast.makeText(getApplicationContext(), "패스워드가 서로 다릅니다", Toast.LENGTH_SHORT).show();
+            }
+        } else {
+            Toast.makeText(getApplicationContext(), "아이디가 이미 존재합니다", Toast.LENGTH_SHORT).show();
+        }
     }
 }

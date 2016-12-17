@@ -22,6 +22,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:inputType="textPassword"
+            android:id="@+id/password1"
             android:hint="비밀번호를 입력하세요"/>
     </TableRow>
     <TableRow>
@@ -33,7 +34,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:inputType="textPassword"
-            android:id="@+id/password"
+            android:id="@+id/password2"
             android:hint="비밀번호를 다시한번 입력하세요"/>
     </TableRow>
     <Button
