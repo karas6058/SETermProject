@@ -3,4 +3,71 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <TextView
+        android:textSize="15pt"
+        android:textStyle="bold"
+        android:layout_gravity="center_horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="예매 확인"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="예매한 영화 정보"/>
+
+    <TableLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <TableRow>
+            <TextView
+                android:text="제목"/>
+            <TextView
+                android:id="@+id/check_title"/>
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:text="상영관"/>
+            <TextView
+                android:id="@+id/check_theater"/>
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:text="날짜"/>
+            <TextView
+                android:id="@+id/check_date"/>
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:text="시간"/>
+            <TextView
+                android:id="@+id/check_time"/>
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:text="좌석"/>
+            <TextView
+                android:id="@+id/check_seat"/>
+        </TableRow>
+    </TableLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_gravity="center_horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <Button
+            android:layout_marginRight="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="확인"
+            android:onClick="check_submit"/>
+        <Button
+            android:layout_marginLeft="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="예매 취소"
+            android:onClick="reserve_cancel"/>
+    </LinearLayout>
+
 </LinearLayout>

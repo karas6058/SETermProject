@@ -28,6 +28,7 @@ public class Login extends AppCompatActivity {
         if (dbHelper.id(id).equals(id)) {
             if (dbHelper.password(id).equals(password)) {
                 Toast.makeText(getApplicationContext(), "로그인 되었습니다", Toast.LENGTH_SHORT).show();
+                finish();
             } else {
                 Toast.makeText(getApplicationContext(), "패스워드가 다릅니다", Toast.LENGTH_SHORT).show();
             }

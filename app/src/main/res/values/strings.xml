@@ -1,3 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">SE_Term_Project</string>
+    <string-array name="movie">
+        <item>영화를 선택하세요.</item>
+        <item>판도라</item>
+        <item>라라랜드</item>
+        <item>당신, 거기 있어줄래요</item>
+        <item>아기배달부 스토크</item>
+        <item>형</item>
+        <item>신비한 동물사전</item>
+        <item>목숨 건 연애</item>
+        <item>나, 다니엘 블레이크</item>
+        <item>미씽: 사라진 여자</item>
+    </string-array>
 </resources>
