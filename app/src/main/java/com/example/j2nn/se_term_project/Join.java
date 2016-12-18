@@ -3,23 +3,16 @@ package com.example.j2nn.se_term_project;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-/**
- * Created by J2NN on 2016-12-17.
- */
-
 public class Join extends AppCompatActivity {
-
     DBHelper dbHelper = new DBHelper(getApplicationContext(), "MEMBER.db", null, 1);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.join);
-
     }
 
     public void submit(View view) {
@@ -27,7 +20,7 @@ public class Join extends AppCompatActivity {
         String password1 = ((EditText) findViewById(R.id.password1)).getText().toString();
         String password2 = ((EditText) findViewById(R.id.password2)).getText().toString();
 
-        if (dbHelper.select(id) == null) {//TODO db에서 아이디 중복 확인
+        if (dbHelper.select(id) == null) {
             if (password1.equals(password2)) {
                 dbHelper.insert(id, password1);
             } else {
