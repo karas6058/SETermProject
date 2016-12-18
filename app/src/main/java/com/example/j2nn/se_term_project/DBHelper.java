@@ -4,6 +4,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 public class DBHelper extends SQLiteOpenHelper{
 
@@ -13,7 +14,7 @@ public class DBHelper extends SQLiteOpenHelper{
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-
+/*
         db.execSQL("CREATE TABLE MOVIE (_id INTEGER PRIMARY KEY AUTOINCREMENT, movieName TEXT, grade TEXT, director TEXT, actor TEXT, runningTime INTEGER, movieImg TEXT, desc TEXT);");
         db.execSQL("INSERT INTO MOVIE (movieName, grade, director, actor, runningTime, movieImg) VALUES ('판도라','Up_to_12','박정우','김남길,김영애,문정희',136,'pandora','역대 최대 규모의 강진에 이어 원자력 폭발 사고까지 예고 없이 찾아온 초유의 재난 앞에 한반도는 일대 혼란에 휩싸이고 믿고 있던 컨트롤 타워마저 사정없이 흔들린다\n');");
         db.execSQL("INSERT INTO MOVIE (movieName, grade, director, actor, runningTime, movieImg) VALUES ('La_La_Land','Up_to_12','다미엔_차젤레','라이언_고슬링,엠마_스톤',128,'lalaland','황홀한 사랑, 순수한 희망, 격렬한 열정… 이 곳에서 모든 감정이 폭발한다\n');");
@@ -24,7 +25,7 @@ public class DBHelper extends SQLiteOpenHelper{
         db.execSQL("INSERT INTO MOVIE (movieName, grade, director, actor, runningTime, movieImg) VALUES ('목숨_건_연애','Up_to_15','송민규','하지원,천정명,진백림',103,'life_risking_romance','연쇄살인범도 잡고, 베스트셀러 작가로 거듭나기 위한!그녀의 기상천외한 수사가 시작된다!\n');");
         db.execSQL("INSERT INTO MOVIE (movieName, grade, director, actor, runningTime, movieImg) VALUES ('나,다니엘_블레이크','Up_to_12','켄_로치','데이브_존스,헤일리_스콰이어',100,'i_daniel_blake','평범한 이웃 사촌, 당신은 내게 영웅입니다\n');");
         db.execSQL("INSERT INTO MOVIE (movieName, grade, director, actor, runningTime, movieImg) VALUES ('미씽:사라진_여자','Up_to_15','이언희','엄지원,공효진',100,'missing','천사 같던 그녀의 새빨간 거짓말 그리고 거짓보다 더 무서운 진실그녀를 찾아야만 한다.\n');");
-
+*/
         db.execSQL("CREATE TABLE MEMBER (_id INTEGER PRIMARY KEY AUTOINCREMENT, memberId TEXT, password TEXT);");
 
     }
@@ -33,17 +34,18 @@ public class DBHelper extends SQLiteOpenHelper{
         // 읽고 쓰기가 가능하게 DB 열기
         SQLiteDatabase db = getWritableDatabase();
         // DB에 입력한 값으로 행 추가
-        db.execSQL("INSERT INTO MEMBER VALUES(null, '" + id + "', " + password + "');");
+        db.execSQL("INSERT INTO MEMBER VALUES(null, '" + id + "', '" + password + "')");
         db.close();
     }
     public String id(String id) {
         // 읽고 쓰기가 가능하게 DB 열기
+        Log.d("id", "id dbhelper");
         SQLiteDatabase db = getReadableDatabase();
         // DB에 입력한 값으로 행 추가
-        Cursor cursor = db.rawQuery("SELECT '" + id + "' FROM MEMBER", null);
+        Cursor cursor = db.rawQuery("SELECT memberId FROM MEMBER WHERE memberId = '" + id + "'", null);
         String r_id = null;
         while(cursor.moveToNext()) {
-            r_id = cursor.getString(1);
+            r_id = cursor.getString(0);
         }
         db.close();
         return r_id;

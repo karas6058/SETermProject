@@ -7,7 +7,9 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 public class Login extends AppCompatActivity {
+
     DBHelper dbHelper = new DBHelper(getApplicationContext(), "MEMBER.db", null, 1);
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

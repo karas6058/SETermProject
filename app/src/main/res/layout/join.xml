@@ -3,16 +3,16 @@
     android:layout_width="match_parent" android:layout_height="match_parent">
 
     <TableRow>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="아이디"/>
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/id"
-            android:hint="아이디를 입력하세요"/>
-    </TableRow>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="아이디"/>
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/id"
+        android:hint="아이디를 입력하세요"/>
+</TableRow>
     <TableRow>
         <TextView
             android:layout_width="wrap_content"
@@ -41,5 +41,6 @@
         android:id="@+id/submit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="회원가입" />
+        android:text="회원가입"
+        android:onClick="submit"/>
 </TableLayout>

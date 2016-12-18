@@ -7,12 +7,13 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 public class Join extends AppCompatActivity {
-    DBHelper dbHelper = new DBHelper(getApplicationContext(), "MEMBER.db", null, 1);
+    DBHelper dbHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.join);
+        dbHelper = new DBHelper(getApplicationContext(), "MEMBER.db", null, 1);
     }
 
     public void submit(View view) {
@@ -20,9 +21,10 @@ public class Join extends AppCompatActivity {
         String password1 = ((EditText) findViewById(R.id.password1)).getText().toString();
         String password2 = ((EditText) findViewById(R.id.password2)).getText().toString();
 
-        if (dbHelper.select(id) == null) {
+        if (dbHelper.id(id) == null) {
             if (password1.equals(password2)) {
                 dbHelper.insert(id, password1);
+                Toast.makeText(getApplicationContext(), "가입되었습니다", Toast.LENGTH_SHORT).show();
             } else {
                 Toast.makeText(getApplicationContext(), "패스워드가 서로 다릅니다", Toast.LENGTH_SHORT).show();
             }
