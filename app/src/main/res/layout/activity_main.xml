@@ -27,6 +27,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/login"
+        android:onClick="login"
         android:text="로그인"/>
     <Button
         android:layout_width="match_parent"

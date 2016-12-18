@@ -55,10 +55,10 @@ public class DBHelper extends SQLiteOpenHelper{
         // 읽고 쓰기가 가능하게 DB 열기
         SQLiteDatabase db = getReadableDatabase();
         // DB에 입력한 값으로 행 추가
-        Cursor cursor = db.rawQuery("SELECT password FROM MEMBER WHERE '" + id + "'", null);
+        Cursor cursor = db.rawQuery("SELECT password FROM MEMBER WHERE memberId = '" + id + "'", null);
         String r_password = null;
         while(cursor.moveToNext()) {
-            r_password = cursor.getString(1);
+            r_password = cursor.getString(0);
         }
         db.close();
         return r_password;
