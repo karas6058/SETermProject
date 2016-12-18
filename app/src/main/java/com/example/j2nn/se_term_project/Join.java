@@ -20,29 +20,16 @@ public class Join extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.join);
 
-        final EditText mid = (EditText) findViewById(R.id.id);
-        final EditText mpw = (EditText) findViewById(R.id.password2);
-
-        Button _submit = (Button) findViewById(R.id.submit);
-        _submit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String id = mid.getText().toString();
-                String pw = mpw.getText().toString();
-                dbHelper.insert(id,pw);
-            }
-        });
     }
 
     public void submit(View view) {
-        final EditText id = (EditText) findViewById(R.id.id);
-        final EditText password1 = (EditText) findViewById(R.id.password1);
-        final EditText password2 = (EditText) findViewById(R.id.password2);
-        final Button button = (Button) findViewById(R.id.submit);
+        String id = ((EditText) findViewById(R.id.id)).getText().toString();
+        String password1 = ((EditText) findViewById(R.id.password1)).getText().toString();
+        String password2 = ((EditText) findViewById(R.id.password2)).getText().toString();
 
-        if (true) {//TODO db에서 아이디 중복 확인
-            if (password1.getText().toString().equals(password2.getText().toString())) {
-                //TODO 아이디와 패스워드 DB에 등록
+        if (dbHelper.select(id) == null) {//TODO db에서 아이디 중복 확인
+            if (password1.equals(password2)) {
+                dbHelper.insert(id, password1);
             } else {
                 Toast.makeText(getApplicationContext(), "패스워드가 서로 다릅니다", Toast.LENGTH_SHORT).show();
             }

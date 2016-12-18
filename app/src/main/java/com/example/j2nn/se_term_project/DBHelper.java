@@ -5,6 +5,7 @@ package com.example.j2nn.se_term_project;
  */
 
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
@@ -38,6 +39,17 @@ public class DBHelper extends SQLiteOpenHelper{
         // DB에 입력한 값으로 행 추가
         db.execSQL("INSERT INTO MEMBER VALUES(null, '" + id + "', " + password + "');");
         db.close();
+    }
+    public String select(String id) {
+        // 읽고 쓰기가 가능하게 DB 열기
+        SQLiteDatabase db = getReadableDatabase();
+        // DB에 입력한 값으로 행 추가
+        Cursor cursor = db.rawQuery("SELECT id FROM MEMBER", null);
+        while(cursor.moveToNext()) {
+            String r_id = cursor.getString(1);
+        }
+        db.close();
+        return id;
     }
 
     @Override
