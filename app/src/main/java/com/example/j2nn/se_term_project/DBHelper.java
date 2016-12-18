@@ -36,7 +36,7 @@ public class DBHelper extends SQLiteOpenHelper{
         db.execSQL("INSERT INTO MEMBER VALUES(null, '" + id + "', " + password + "');");
         db.close();
     }
-    public String select(String id) {
+    public String id(String id) {
         // 읽고 쓰기가 가능하게 DB 열기
         SQLiteDatabase db = getReadableDatabase();
         // DB에 입력한 값으로 행 추가
@@ -47,6 +47,19 @@ public class DBHelper extends SQLiteOpenHelper{
         }
         db.close();
         return r_id;
+    }
+
+    public String password(String id) {
+        // 읽고 쓰기가 가능하게 DB 열기
+        SQLiteDatabase db = getReadableDatabase();
+        // DB에 입력한 값으로 행 추가
+        Cursor cursor = db.rawQuery("SELECT password FROM MEMBER WHERE '" + id + "'", null);
+        String r_password = null;
+        while(cursor.moveToNext()) {
+            r_password = cursor.getString(1);
+        }
+        db.close();
+        return r_password;
     }
 
     @Override
