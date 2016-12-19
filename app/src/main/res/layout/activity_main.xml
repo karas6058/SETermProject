@@ -45,4 +45,17 @@
         android:layout_height="wrap_content"
         android:text="예매 확인"
         android:id="@+id/check"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="회원가입 DB CLEAR"
+        android:id="@+id/idClear"
+        android:onClick="idClear"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="DB 전체 초기화"
+        android:id="@+id/Clear"
+        android:onClick="Clear"/>
 </LinearLayout>
