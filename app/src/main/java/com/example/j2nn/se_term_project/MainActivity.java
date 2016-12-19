@@ -20,4 +20,7 @@ public class MainActivity extends AppCompatActivity {
     public void login(View view) {
         startActivity(new Intent(getApplicationContext(), Login.class));
     }
+    public void info(View view) {
+        startActivity(new Intent(getApplicationContext(), MovieInfo.class));
+    }
 }

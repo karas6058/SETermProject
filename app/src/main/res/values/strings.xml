@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name='app_name'>SE TERM PROJECT</string>
     <string-array name="movie">
         <item>영화를 선택하세요.</item>
         <item>판도라</item>

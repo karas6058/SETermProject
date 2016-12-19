@@ -25,6 +25,7 @@ public class Join extends AppCompatActivity {
             if (password1.equals(password2)) {
                 dbHelper.insert(id, password1);
                 Toast.makeText(getApplicationContext(), "가입되었습니다", Toast.LENGTH_SHORT).show();
+                finish();
             } else {
                 Toast.makeText(getApplicationContext(), "패스워드가 서로 다릅니다", Toast.LENGTH_SHORT).show();
             }

@@ -33,7 +33,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="상영중인 영화정보"
-        android:id="@+id/info"/>
+        android:id="@+id/info"
+        android:onClick="info"/>
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
