@@ -4,6 +4,7 @@ import android.database.Cursor;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.widget.ArrayAdapter;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 
@@ -28,9 +29,9 @@ public class MovieInfo extends AppCompatActivity{
         list = (ListView) findViewById(R.id.listView);
         mInfoArray = new ArrayList<String>();
 
-        Cursor cursor = dbHelper.info();
-        while(cursor.moveToNext()) {
-            mInfoArray.add(cursor.getString(0));
-        }
+
+        ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, dbHelper.info());
+        list.setAdapter(adapter);
+
     }
 }

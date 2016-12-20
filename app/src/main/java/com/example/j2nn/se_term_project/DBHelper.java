@@ -60,7 +60,7 @@ public class DBHelper extends SQLiteOpenHelper{
 
     public void deleteId(String id) {
         SQLiteDatabase db = getReadableDatabase();
-        db.execSQL("DELETE FROM MEMBER WHERE memberId = '" + id + "'", null);
+        db.execSQL("DELETE FROM MEMBER WHERE memberId = '" + id + "'");
     }
 
     public ArrayList<String> idAll() {
@@ -87,14 +87,16 @@ public class DBHelper extends SQLiteOpenHelper{
         return r_password;
     }
 
-    public Cursor info() {
-        // 읽고 쓰기가 가능하게 DB 열기
+    public ArrayList<String> info() {
+        ArrayList<String> movie = new ArrayList<>();
         SQLiteDatabase db = getReadableDatabase();
-        // DB에 입력한 값으로 행 추가
         Cursor cursor = db.rawQuery("SELECT movieName, grade, director, actor, runningTime, movieImg FROM MOVIE", null);
 
+        while(cursor.moveToNext()) {
+             movie.add(cursor.getString(0));
+        }
         db.close();
-        return cursor;
+        return movie;
     }
 
 

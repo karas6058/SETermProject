@@ -35,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
             joinbtn.setVisibility(View.GONE);
             loginbtn.setVisibility(View.GONE);
             logoutbtn.setVisibility(View.VISIBLE);
+            logoutbtn.setText(id + " 로그아웃");
         } else {
             joinbtn.setVisibility(View.VISIBLE);
             loginbtn.setVisibility(View.VISIBLE);
