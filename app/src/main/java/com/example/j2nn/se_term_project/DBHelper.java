@@ -4,7 +4,15 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.support.annotation.NonNull;
 import android.util.Log;
+
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.List;
+import java.util.ListIterator;
 
 public class DBHelper extends SQLiteOpenHelper{
 
@@ -40,7 +48,6 @@ public class DBHelper extends SQLiteOpenHelper{
         db.close();
     }
     public String id(String id) {
-        Log.d("id", "id dbhelper");
         SQLiteDatabase db = getReadableDatabase();
         Cursor cursor = db.rawQuery("SELECT memberId FROM MEMBER WHERE memberId = '" + id + "'", null);
         String r_id = null;
@@ -49,6 +56,22 @@ public class DBHelper extends SQLiteOpenHelper{
         }
         db.close();
         return r_id;
+    }
+
+    public void deleteId(String id) {
+        SQLiteDatabase db = getReadableDatabase();
+        db.execSQL("DELETE FROM MEMBER WHERE memberId = '" + id + "'", null);
+    }
+
+    public ArrayList<String> idAll() {
+        ArrayList<String> id = new ArrayList<>();
+        SQLiteDatabase db = getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT memberId FROM MEMBER", null);
+        while(cursor.moveToNext()) {
+            id.add(cursor.getString(0));
+        }
+        db.close();
+        return id;
     }
 
     public String password(String id) {

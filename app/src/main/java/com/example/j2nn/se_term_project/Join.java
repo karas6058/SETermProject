@@ -38,6 +38,10 @@ public class Join extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "패스워드는 필수값입니다", Toast.LENGTH_SHORT).show();
                     return;
                 }
+                if (password1.length() < 6) {
+                    Toast.makeText(getApplicationContext(), "패스워드는 6자 이상이어야 합니다", Toast.LENGTH_SHORT).show();
+                    return;
+                }
 
                 dbHelper.insert(id, password1);
                 Toast.makeText(getApplicationContext(), "가입되었습니다", Toast.LENGTH_SHORT).show();

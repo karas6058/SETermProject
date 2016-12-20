@@ -6,44 +6,46 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.LinearLayout;
 
 import static com.example.j2nn.se_term_project.Join.id;
 import static com.example.j2nn.se_term_project.Join.login;
 
 public class MainActivity extends AppCompatActivity {
     DBHelper dbHelper;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         dbHelper = new DBHelper(getApplicationContext(), "MEMBER.db", null, 1);
+
     }
 
     @Override
     protected void onStart() {
+
+        final Button joinbtn = (Button) findViewById(R.id.signup);
+        final Button loginbtn = (Button) findViewById(R.id.login);
+        final Button logoutbtn = (Button) findViewById(R.id.logout);
+        final Button memberbtn = (Button) findViewById(R.id.member);
+
         super.onStart();
+
         if (login) {
-            final Button joinbtn = (Button) findViewById(R.id.signup);
             joinbtn.setVisibility(View.GONE);
-            final Button loginbtn = (Button) findViewById(R.id.login);
             loginbtn.setVisibility(View.GONE);
-
-            final Button logout = new Button(this);
-            logout.setText(id + " 로그아웃");
-            final LinearLayout linearLayout = (LinearLayout) findViewById(R.id.activity_main);
-            linearLayout.addView(logout);
-            logout.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    joinbtn.setVisibility(View.VISIBLE);
-                    loginbtn.setVisibility(View.VISIBLE);
-
-                    linearLayout.removeView(logout);
-                    login = false;
-                }
-            });
+            logoutbtn.setVisibility(View.VISIBLE);
+        } else {
+            joinbtn.setVisibility(View.VISIBLE);
+            loginbtn.setVisibility(View.VISIBLE);
+            logoutbtn.setVisibility(View.GONE);
         }
+
+
+        if (id != null && id.equals("admin"))
+            memberbtn.setVisibility(View.VISIBLE);
+        else
+            memberbtn.setVisibility(View.GONE);
     }
 
     public void signup(View view) {
@@ -52,8 +54,25 @@ public class MainActivity extends AppCompatActivity {
     public void login(View view) {
         startActivity(new Intent(getApplicationContext(), Login.class));
     }
+
+    public void logout(View view) {
+        final Button joinbtn = (Button) findViewById(R.id.signup);
+        final Button loginbtn = (Button) findViewById(R.id.login);
+        final Button logoutbtn = (Button) findViewById(R.id.logout);
+        final Button memberbtn = (Button) findViewById(R.id.member);
+
+        joinbtn.setVisibility(View.VISIBLE);
+        loginbtn.setVisibility(View.VISIBLE);
+        logoutbtn.setVisibility(View.GONE);
+        login = false;
+    }
+
     public void info(View view) {
         startActivity(new Intent(getApplicationContext(), MovieInfo.class));
+    }
+
+    public void member(View view) {
+        startActivity(new Intent(getApplicationContext(), Member.class));
     }
 
     public void idClear(View view) {

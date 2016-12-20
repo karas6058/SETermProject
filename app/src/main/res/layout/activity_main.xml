@@ -32,6 +32,18 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:id="@+id/logout"
+        android:onClick="logout"
+        android:text="로그아웃"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="회원관리"
+        android:id="@+id/member"
+        android:onClick="member"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:text="상영중인 영화정보"
         android:id="@+id/info"
         android:onClick="info"/>
@@ -45,6 +57,7 @@
         android:layout_height="wrap_content"
         android:text="예매 확인"
         android:id="@+id/check"/>
+
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

@@ -17,6 +17,7 @@
         </activity>
         <activity android:name=".Join"/>
         <activity android:name=".Login"/>
+        <activity android:name=".Member"/>
     </application>
 
 </manifest>
