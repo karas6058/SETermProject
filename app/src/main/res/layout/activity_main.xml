@@ -61,14 +61,21 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="회원가입 DB CLEAR"
+        android:text="MEMBER DB CLEAR"
         android:id="@+id/idClear"
         android:onClick="idClear"/>
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="DB 전체 초기화"
+        android:text="MOVIE DB RESET"
+        android:id="@+id/movieClear"
+        android:onClick="movieClear"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="ALL DB RESET"
         android:id="@+id/Clear"
         android:onClick="Clear"/>
 </LinearLayout>

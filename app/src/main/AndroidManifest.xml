@@ -19,6 +19,8 @@
         <activity android:name=".Login"/>
         <activity android:name=".Member"/>
         <activity android:name=".MovieInfo"/>
+        <activity android:name=".MovieInfoDetailView"/>
+        <activity android:name=".MovieModify"/>
     </application>
 
 </manifest>

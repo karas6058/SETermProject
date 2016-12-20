@@ -33,6 +33,7 @@ public class MovieInfo extends AppCompatActivity{
 
         list = (ListView) findViewById(R.id.listView);
 
+        list.invalidate();
         ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, dbHelper.info());
         list.setAdapter(adapter);
 
@@ -47,5 +48,14 @@ public class MovieInfo extends AppCompatActivity{
                 startActivity(intent);
             }
         });
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, dbHelper.info());
+        list.setAdapter(adapter);
+
     }
 }

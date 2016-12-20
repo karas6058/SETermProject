@@ -25,6 +25,10 @@ public class Login extends AppCompatActivity {
         id = ((EditText) findViewById(R.id.id)).getText().toString();
         String password = ((EditText) findViewById(R.id.password)).getText().toString();
 
+        if (id.equals("")) {
+            Toast.makeText(getApplicationContext(), "아이디는 필수값입니다.", Toast.LENGTH_SHORT).show();
+            return;
+        }
         if (dbHelper.id(id) == null) {
             Toast.makeText(getApplicationContext(), "존재하지 않는 아이디입니다.", Toast.LENGTH_SHORT).show();
             return;
