@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
 
-        if (true || id != null && id.equals("admin"))
+        if (id != null && id.equals("admin"))
             memberbtn.setVisibility(View.VISIBLE);
         else
             memberbtn.setVisibility(View.GONE);
